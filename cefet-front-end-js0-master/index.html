@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript 0 - Exercícios</title>
+        <link rel="shortcut icon" href="imagens/crown.svg">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Noto+Sans+TC&family=Caveat&family=Inconsolata&display=swap">
+        <link rel="stylesheet" href="estilos/estilo.css">
+        <link rel="stylesheet" href="estilos/jquery-ui.css">
+        <link rel="stylesheet" href="estilos/katex.css">
+    </head>
+    <body>
+
+        <!-- as unidades de exercícios -->
+        <div id="unidades">
+            <div id="unidade1" class="unidade-ensino">
+                <h3>
+                    [Unidade 1] Tipos de dados, Variáveis e Funções
+                </h3>
+                <p>
+                    <span class="link-recurso">
+                        🌐 <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#tipos-de-dados-variaveis-e-funcoes" target="_blank">slides</a>
+                    </span>
+                    <span class="link-recurso">
+                        📺 <a href="https://www.youtube.com/watch?v=HVTqSwKmIYM" target="_blank">video-aula</a>
+                    </span>
+                </p>
+                <nav>
+                    <p>
+                        Após estudar este tópico, faça os exercícios<br>
+                        no arquivo <span class="arquivo">ex-unidade1.js</span>:
+                    </p>
+                    <ul data-tutorial="Selecione a página ⤳"></ul>
+                </nav>
+            </div>
+            <div id="unidade2" class="unidade-ensino">
+                <h3>
+                    [Unidade 2] Condicionais, Vetores e Estruturas de Repetição
+                </h3>
+                <p>
+                    <span class="link-recurso">
+                        🌐 <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#condicionais-vetores-e-estruturas-de-repeticao"
+                            target="_blank">slides</a>
+                    </span>
+                    <span class="link-recurso">
+                        📺 <a href="https://www.youtube.com/watch?v=jUogBV4G3X8" target="_blank">video-aula</a>
+                    </span>
+                </p>
+                <nav>
+                    <p>
+                        Após estudar este tópico, faça os exercícios<br>
+                        no arquivo <span class="arquivo">ex-unidade2.js</span>:
+                    </p>
+                    <ul></ul>                
+                </nav>
+            </div>
+            <div id="unidade3" class="unidade-ensino">
+                <h3>
+                    [Unidade 3] Mais sobre funções e Métodos úteis
+                </h3>
+                <p>
+                    <span class="link-recurso">
+                        🌐 <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#mais-sobre-funcoes-e-metodos-uteis"
+                            target="_blank">slides</a>
+                    </span>
+                    <span class="link-recurso">
+                        📺 <a href="https://www.youtube.com/watch?v=uRAtZQccA1g" target="_blank">video-aula</a>
+                    </span>
+                </p>
+                <nav>
+                    <p>
+                        Após estudar este tópico, faça os exercícios<br>
+                        no arquivo <span class="arquivo">ex-unidade3.js</span>:
+                    </p>
+                    <ul></ul>
+                </nav>
+            </div>
+        </div>
+        <!-- status de cada exercicio -->
+        <div id="status-exercicios"></div>
+
+        <!-- as seções com os enunciados dos exercícios -->
+        <section>
+            <div id="aquecimento-unidade1">
+                <h2>Exercício 0.1: Entendendo a saída de testes <span id="result-teste0.1" data-mostra-teste="teste-ex0.1"></span></h2>
+                <p>
+                    Nesta atividade de JavaScript, vamos apresentar os resultados de cada exercício usando uma função criada
+                    pelos professores chamada <code class="funcao">escreva(...)</code>. Ela mostra na página web o valor de uma determinada variável, com um 
+                    determinado rótulo (descrição) para identificá-la. Assim, essa função recebe como parâmetros: 1) o número do exercício, 
+                    2) o rótulo (que é uma descrição da variável) e 3) o valor da variável. Por exemplo, ela pode ser invocada assim:
+                </p>
+                <pre><code><span class="palavra-chave">function</span> algumaFuncaoMinha() {
+    <span class="comentario">// ...</span>
+    <span class="comentario">// ...</span>
+    <span class="comentario">// ...</span>
+    <span class="palavra-chave">let</span> <span class="variavel">senhaWiFi</span> = <span class="literal">'scientiasalvet'</span>;
+    <span class="comentario">// ...</span>
+    <span class="comentario">// ...</span>
+    <span class="comentario">// chamando função 'escreva(...)'</span>
+    <span class="comentario">// <span class="upside-down">^</span></span>
+    <span class="comentario">// --------------------------------------------------------</span>
+    escreva(<span class="literal">1</span>, <span class="literal">'A senha do WiFi na casa do Coutinho'</span>, <span class="variavel">senhaWiFi</span>);
+    <span class="comentario">//      -  -------------------------------------  ---------</span>
+    <span class="comentario">//      ^ nº exercício   ^ rótulo (descrição)     ^ variável</span>
+    <span class="comentario">// ...</span>
+    <span class="comentario">// ...</span>
+}</code></pre>
+                <p>
+                    Veja, no arquivo <span class="arquivo">ex-unidade1.js</span>, na função <span class="funcao">testeSaidas</span>, 
+                    como a função <code class="funcao">escreva(...)</code> foi chamada para 
+                    imprimir a variável <span class="variavel">a</span>. Ao invocar a função para escrever, ela 
+                    aparecerá na caixa de saída (região <span class="saida inline-swatch"></span> logo abaixo). Note que a função está apenas <strong>implementada</strong>
+                    mas <strong>ainda não foi invocada</strong> (chamada). Você pode invocá-la no próprio arquivo (<code class="arquivo">ex-unidade1.js</code>).
+                    Assim que invocá-la, o valor da variável será mostrado na caixa de saída logo abaixo <span class="saida inline-swatch"></span>.
+                    Então, <strong>invoque-a agora</strong> dentro de <span class="arquivo">ex-unidade1.js</span> e veja se aparece na saída o valor da variável <span class="variavel">a</span>.
+                    Para verificar se ocorreu algum erro de sintaxe (escrita) no seu código, pressione 
+                    <kbd>F12</kbd> e o <span data-mostra-balaozinho="dica-abrindo-console">erro aparecerá na aba de console</span>.
+                </p>
+                <p>
+                    Neste exercício 0.1, você deverá continuar a implementação da função <span class="funcao">testeSaidas</span>. 
+                    Nela, você deverá chamar a função <span class="funcao">escreva</span> mais vezes para imprimir as variáveis
+                        (i) <span class="variavel">b</span>,
+                        (ii) a soma das variáveis <span class="variavel">a</span> e <span class="variavel">b</span>,
+                        (iii) <span class="variavel">d</span>,
+                        (iv) <span class="variavel">e</span>,
+                    da mesma forma que foi impressa a variável <span class="variavel">a</span>.
+                    Logo após, escreva seu nome por meio da função <span class="funcao">escrevaMensagem</span> - veja como ela foi usada no início do código da função <span class="funcao">testeSaidas</span>. 
+                </p>
+                <div id="div-ex0.1" class="saida"></div>
+
+
+                <h2>Exercício 0.2: Função soma <span id="result-teste0.2" data-mostra-teste="teste-ex0.2"></span></h2>
+                <p>
+                    No arquivo <span class="arquivo">ex-unidade1.js</span>, <span data-mostra-balaozinho="dica-criar-funcao">crie uma função</span>
+                    chamada <span class="funcao">soma</span> que recebe dois números como parâmetros,
+                    escreve na saída abaixo (ou seja, chama <code class="funcao">escreva(...)</code>) 
+                    a soma desses dois números e, por fim, retorna o resultado para quem invocou a função.
+                    Ao invocar <span class="funcao" data-mostra-balaozinho="assinatura-de-escreva">escreva(...)</span>,
+                    use como rótulo (2º argumento) o texto <span class="variavel">soma</span>.
+                    Você pode querer <span data-mostra-balaozinho="dica-criar-variavel">criar uma variável</span>
+                    (mas dá para resolver sem criar também). Por fim, invoque a função criada
+                    <code class="funcao">soma(...)</code> para os números 5 e -2.
+                </p>
+                <div id="div-ex0.2" class="saida"></div>
+
+
+                <h2>Exercício 0.3: Fazendo cálculos matemáticos <span id="result-teste0.3" data-mostra-teste="teste-ex0.3"></span></h2>
+                <p>
+                    Implemente no arquivo <span class="arquivo">ex-unidade1.js</span> uma função com nome <span class="funcao">calculaValoresDoNumero</span>, 
+                    que recebe como parâmetro um número qualquer e escreve: i) <span data-mostra-balaozinho="dica-operadores">o quadrado</span> deste número, ii) a sua metade e iii) 
+                    a sua <span data-mostra-balaozinho="dica-raiz-quadrada">raiz quadrada</span> usando os rótulos <span class="variavel">quadrado</span>, <span class="variavel">metade</span> e <span class="variavel">raiz</span>, respectivamente.
+                    Faça o teste invocando esta função (<span class="funcao">calculaValoresDoNumero(...)</span>) para, pelo menos, dois números diferentes.
+                </p>
+                <div id="div-ex0.3" class="saida"></div>
+
+            </div>
+            <div id="aquecimento-unidade2">
+                <h2>Exercício 0.4: Entendedo o for of e "para cada" <span id="result-teste0.4" data-mostra-teste="teste-ex0.4"></span></h2>
+                <p>
+                    Continue a implementação da função <span class="funcao">contandoElementosDoVetor</span> 
+                    no arquivo <span class="arquivo">ex-unidade2.js</span>. Essa função recebe
+                    como parâmetro o vetor <span class="variavel">elementos</span> e um
+                    <span class="variavel">elementoSendoProcurado</span> e deverá usar o 
+                    <span data-mostra-balaozinho="dica-forofeach"><code class="funcao">for of</code> ou o <code class="funcao">for each</code></span>
+                    para contar quantas vezes que o <span class="variavel">elementoSendoProcurado</span>
+                    apareceu no vetor <span class="variavel">elementos</span>. Essa quantidade deve ser retornada
+                    pela função.
+                </p>
+                <p>
+                    Para verificar se o <code class="variavel">elemento</code> atual
+                    do vetor é igual ao <span class="variavel">elementoSendoProcurado</span>,
+                    você pode querer usar um <span data-mostra-balaozinho="dica-if-else">if/else</span>.
+                </p>
+                <p>
+                    Teste a função invocando-a tanto para vetores de <code>strings</code> quanto de <code>numbers</code>:
+                </p>
+                <pre><code>contandoElementosDoVetor([<span class="literal">1</span>, <span class="literal">5</span>, <span class="literal">5</span>], <span class="literal">5</span>);                  <span class="comentario">// retorna 2</span>
+contandoElementosDoVetor([<span class="literal">'daniel'</span>, <span class="literal">'flávio'</span>], <span class="literal">'joão'</span>);  <span class="comentario">// retorna 0</span></code></pre>
+                <div id="div-ex0.4" class="saida"></div>
+
+                <h2>Exercício 0.5: Nome do mês dado seu número <span id="result-teste0.5" data-mostra-teste="teste-ex0.5"></span></h2>
+                <p>
+                    Na função <code class="funcao">obtemNomeDoMes</code> do arquivo <code class="arquivo">ex-unidade2.js</code>, 
+                    substitua as palavras <code class="palavra-chave">null</code> pelos valores corretos para 
+                    terminar de implementá-la. Ela recebe como parâmetro o número do mês (de 1 a 12) e deve retornar seu nome.
+                    Lembre-se de como <span data-mostra-balaozinho="dica-vetor-declarar-e-indexar">pegar o i-ésimo</span> elemento
+                    de um vetor. Essa função também deve verificar se o número recebido é um mês válido,
+                    ou retornar <code class="variavel">null</code>
+                    (lembre-se de <span data-mostra-balaozinho="dica-if-else">if/else</span>).
+                </p>
+                <p>
+                    Neste exercício, você não deve alterar o vetor <code class="variavel">meses</code>. Apenas altere os
+                    trechos do código onde está escrito <code class="palavra-chave">null</code> para valores
+                    que façam sentido para o código executar corretamente. Faça o teste para meses válidos
+                    e inválidos (ex: -1, 0, 13). Iremos usar esta função em outro exercício e, por isso, você deverá
+                    <span data-mostra-balaozinho="assinatura-de-escreva">escrever</span> o mês 
+                    resultante do lado de fora da função 
+                    <span data-mostra-balaozinho="dica-usando-retorno">usando seu retorno</span>.
+                </p> 
+                <div id="div-ex0.5" class="saida"></div>
+
+            </div>
+            <div id="aquecimento-unidade3">
+                <h2>Exercício 0.6: Métodos úteis dos vetores <span id="result-teste0.6" data-mostra-teste="teste-ex0.6"></span></h2>
+                <p>
+                    Implemente a função <span class="funcao">metodosVetor</span> no arquivo 
+                    <span class="arquivo">ex-unidade3.js</span>, que recebe como parâmetro um vetor e 
+                    retorna o próprio vetor mas com as seguintes modificações:
+                </p>
+                <ol>
+                    <li><span data-mostra-balaozinho="dica-ordena-vetor">Ordene o vetor</span> de forma crescente;</li>
+                    <li><span data-mostra-balaozinho="dica-remove-vetor">Remova</span> o último elemento do vetor (já ordenado);</li>
+                    <li><span data-mostra-balaozinho="dica-insere-vetor">Insira</span> a palava "abacate" no início do vetor;</li>
+                    <li>Escreva o vetor resultante na saída deste exercício.</li>
+                </ol> 
+                <p>
+                    Faça o teste abaixo invocando esta função 2 vezes com vetores de tamanho diferentes 
+                    que contenham números (<code>[<span class="literal">4</span>, <span class="literal">0</span>, <span class="literal">9</span>]</code> )
+                    ou então strings.
+                </p>
+                <details class="dica">
+                    <summary>Note que...</summary>
+                    <p>
+                        A função <code data-mostra-balaozinho="dica-ordena-vetor">vetor.sort()</code> sem
+                        a função passada como parâmetro converte números para strings e só então compara. Sendo assim,
+                        <code>[1, 2, 3, 100].sort()</code> resultaria em <code>[1, 100, 2, 3]</code>. Para este exercício, não é
+                        necessário se preocupar com isso.
+                    </p>
+                </details>
+                <div id="div-ex0.6" class="saida"></div>
+
+                <h2>Exercício 0.7: Métodos úteis de string <span id="result-teste0.7" data-mostra-teste="teste-ex0.7"></span></h2>
+                <p>Implemente no arquivo <span class="arquivo">ex-unidade3.js</span> a função <span class="funcao">metodosString</span> 
+                que recebe como parâmetro uma string qualquer e deve fazer as seguintes transformações: 
+                </p>
+                <ol>
+                    <li>Deixá-la toda em maiúsculas;</li>
+                    <li>Substituir todas as letras "o" por "a";</li>
+                    <li>Escreva o resultado na saída deste exercício.</li>
+                </ol>
+                <p>
+                    Veja a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Instance_methods" target="_blank">documentação</a> e 🌐 <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#metodos-comuns-de-strings-1" target="_blank">os slides</a>, se necessário.
+                    Em particular, a função <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll" target="_blank"><code class="funcao">texto.replaceAll</code></a> poderá ajudar. 
+                    Faça o teste invocando a função algumas vezes para diferentes palavras.
+                </p>
+                <details class="dica">
+                    <summary>Note que...</summary>
+                    <p>
+                        Diferente dos métodos de vetores, que alteram o próprio vetor, <strong>os métodos das strings 
+                        <ins>não alteram</ins></strong> a própria string, mas sim retornam uma nova string com o resultado.
+                        Ou seja, o código a seguir não está alterando o valor da variável:
+                        <pre><code><span class="palavra-chave">let</span> <span class="variavel">pessoa</span> = <span class="literal">'Dança'</span>;
+<span class="variavel">pessoa</span>.toUpperCase(); <span class="comentario">// retorna 'DANÇA'</span>
+
+console.log(<span class="variavel">pessoa</span>);  <span class="comentario">// imprime 'Dança'</span></code></pre>
+                        ...mas este aqui está <strong>atualizando para onde a variável aponta</strong>:
+                        <pre><code><span class="palavra-chave">let</span> <span class="variavel">pessoa</span> = <span class="literal">'Dança'</span>;
+<span class="variavel">pessoa</span> = <span class="variavel">pessoa</span>.toUpperCase(); <span class="comentario">// retorna 'DANÇA'</span>
+
+console.log(<span class="variavel">pessoa</span>);  <span class="comentario">// imprime 'DANÇA'</span></code></pre>
+                    </p>
+                </details>
+                <div id="div-ex0.7" class="saida"></div>
+            </div>
+        </section>
+        <section>
+            <h2>Exercício 1: Altura da bola no instante t <span id="result-teste1" data-mostra-teste="teste-ex1"></span></h2>
+            <p class="referencia">Exercício adaptado de  <a href='https://loja.grupoa.com.br/fundamentos-da-programacao-de-computadores-algoritmos-pascal-c-c-e-java978856457-p1005106?tsid=34'>[Fundamentos da Programação de Computadores: Algoritmos, Pascal, C, C++ e Java, Holloway, 2008</a>]</p>
+            <p>
+                Uma bola é jogada para o alto. Neste problema, deve-se calcular a altura \(h(t)\) (em metros)
+                desta bola em um determinado tempo \(t\) (em segundos). Considere que a pessoa lançou a bola
+                a uma altura \(h(t)=v_0t - \frac{gt^2}{2}\), em que \(v_0\) é a velocidade
+                inicial da bola em metros por segundo, \(t\) é o tempo em segundos e \(g\) é a gravidade.
+            </p>
+            <p>
+                Assim, você deverá terminar de implementar a função <span class="funcao">calculaAlturaBola</span>
+                no arquivo <span class="arquivo">ex-unidade1.js</span> substituindo o valor 
+                <code class="palavra-chave">null</code> apropriadamente. Essa função recebe como parâmetro 
+                o tempo <span class="variavel">\(t\)</span>, a velocidade inicial <span class="variavel">\(v_0\)</span>
+                e a gravidade <span  class="variavel">\(g\)</span> <strong>nessa ordem</strong> 
+                e retorne a altura da bola naquele instante.
+            </p>
+            <p>
+                Para testar, invoque esta função usando a gravidade da Terra (9,81 m/s²), 
+                velocidade inicial 50 e tempo 1, 5 e 10 (ou seja, invoque a função 3 vezes).
+            </p>
+            <p> 
+                Se algo estranho (ou nada) acontecer, para verificar se o seu código tem algum 
+                erro de sintaxe (escrita), pressione <kbd>F12</kbd> e o erro aparecerá na 
+                <span data-mostra-balaozinho="dica-abrindo-console">aba de console</span>.
+            </p>
+            <p>
+                Escreva na saída abaixo <span class="saida inline-swatch"></span> o resultado das execuções 
+                dessa função. Contudo, em vez de invocar <code data-mostra-balaozinho="assinatura-de-escreva">escreva</code>
+                dentro de <code class="funcao">calculaAlturaBola</code>, chame-a fora dela, após invocá-la e 
+                <span data-mostra-balaozinho="dica-usando-retorno">receber seu valor de retorno</span>.
+                Isso é necessário neste exercício porque iremos reutilizar essa função em uma próxima atividade ;)
+            </p>
+
+
+            <div id="div-ex1" class="saida"></div>
+        </section>
+        <section>
+            <h2>Exercício 2: Velocidade da bola no instante t <span id="result-teste2" data-mostra-teste="teste-ex2"></span></h2>
+            <p class="referencia">Exercício adaptado de <a href="https://loja.grupoa.com.br/fundamentos-da-programacao-de-computadores-algoritmos-pascal-c-c-e-java978856457-p1005106?tsid=34">[Fundamentos da Programação de Computadores: Algoritmos, Pascal, C, C++ e Java, Holloway, 2008]</a></p>
+            
+            <p>
+                Podemos complementar com mais uma informação sobre o lançamento da bola: agora, dado sua 
+                velocidade inicial \(v_0\) de lançamento para cima, calcule a velocidade \(v(t)\) que ela possui
+                no instante \(t\) após ser lançada. A função \(v(t)\) é definida da seguinte forma: \(v(t) = v_0 − gt\)
+            </p>
+            <p>
+                Crie no arquivo <code class="arquivo">ex-unidade1.js</code> a função <code class="funcao">calculaVelocidadeBola</code> 
+                que receberá como parâmetro o tempo <span class="variavel">\(t\)</span>, a velocidade inicial
+                <span class="variavel">\(v_0\)</span> e a gravidade <span  class="variavel">g</span>
+                <strong>exatamente nessa ordem</strong> e deve calcular e retornar o valor encontrado de velocidade. 
+                Similar ao exercício da altura da bola, <span data-mostra-balaozinho="assinatura-de-escreva">escreva</span>
+                na saída abaixo o resultado das execuções dessa função. Como iremos usar essa função em um outro exercício,
+                você deverá escrever o resultado dele fora da função,
+                <span data-mostra-balaozinho="dica-usando-retorno">usando seu retorno</span>. 
+                
+            </p>
+            <p>
+                Seguindo as <span data-mostra-balaozinho="dica-regras-legibilidade">regras de legibilidade</span>,
+                use variáveis com nomes legíveis (inclusive os parâmetros). Ou seja, ao invés de nomear a 
+                gravidade como <span class="variavel">g</span>, nomeie-a como <span class="variavel">gravidade</span>
+                O aluno pederá ponto caso o código esteja mal indentado ou ilegível.
+            </p>
+            <p>
+                Para testar, invoque esta função usando a gravidade da Terra (9,81 m/s²), velocidade inicial de 50
+                e tempo 1, 5 e 10 (ou seja, invoque a função 3 vezes).
+            </p>
+            <div id="div-ex2" class="saida"></div>
+        </section>
+
+
+
+
+
+
+        <section>
+            <h2>Exercício 3: Velocidade e altura da bola em vários instantes t <span id="result-teste3" data-mostra-teste="teste-ex3"></span></h2>
+            <p>
+                Implemente a função <span class="funcao">calculaVelocidadeAlturaBola</span> que recebe como parâmetro 
+                a velocidade inicial, a gravidade e um valor inteiro <span class="variavel">n</span>
+                <strong>nessa ordem</strong> e exibe na saída abaixo a altura e a velocidade da bola nos tempos \(t\)
+                de 1 até <span class="variavel">n</span>. Neste exercício,
+                você deve usar as funções implementadas nos exercícios 1 e 2 (apenas invocá-las -- não as recrie).
+            </p>
+            <p>
+                Dentro do laço, você deve invocar <span data-mostra-balaozinho="assinatura-da-escreva">escreva</span>
+                duas vezes para (i) altura e (ii) velocidade naquele instante, usando como rótulos
+                <span class="literal">h(i)</span> e <span class="literal">v(i)</span> em que <span class="variavel">i</span>
+                é o número referente ao instante (tempo) atual. Para tanto, lembre-se de como 
+                <span data-mostra-balaozinho="dica-concatenar-strings">concatenar strings</span>.
+            </p>
+            <p>
+                Para testar, invoque esta função usando a gravidade da Terra (9,81 m/s²), velocidade inicial de 50 e n = 20.
+            </p>
+            <div id="div-ex3" class="saida"></div>
+        </section>
+        <section>
+            <h2>Exercício 4: Somatório <span id="result-teste4" data-mostra-teste="teste-ex4"></span></h2>
+            <p>
+                Implemente a função <span class="funcao">somatorio</span> que receberá como parâmetro
+                um valor inteiro <span class="variavel">n</span> e fará o seguinte 
+                cálculo: \(S = \frac{1}{2}+\frac{1}{4}+\frac{1}{6}+...+\frac{1}{n}\). 
+                Logo após, escreva o resultado <span class="variavel">S</span> na saída abaixo e o retorne.
+                Lembre-se de como criar um laço <span data-mostra-balaozinho="dica-forofeach">for (tradicional)</span>.
+            </p>
+            <details class="dica">
+                <summary>Dica</summary>
+                <p>
+                    Há exercícios semelhantes, porém mais fáceis para se elaborar um plano. Imagine
+                    se fosse pra somar os números de 2 até \(n\). Só que, em vez disso, deve-se andar
+                    de 2 em 2. E, por fim, em vez de somar \(2+4+...+n\), o correto é
+                    \(\frac{1}{2} + \frac{1}{4} + ... + \frac{1}{n}\).
+                </p>
+            </details>
+            <p>
+                 Para testar, invoque esta função 3 vezes: usando n=1, n=10 e n=100.
+            </p>
+            <div id="div-ex4" class="saida"></div>
+        </section>
+        <section>
+            <h2>Exercício 5: Posição de um elemento no vetor <span id="result-teste5" data-mostra-teste="teste-ex5"></span></h2>
+            <p>
+                Implemente a função <span class="funcao">obtemPosicaoDoElemento</span> que recebe como parâmetro 
+                um vetor e um elemento e retorna a posição da primeira ocorrência do mesmo. Caso não exista, 
+                ele deverá retornar <code class="variavel">null</code>. Você deverá também 
+                <span data-mostra-balaozinho="assinatura-de-escreva">escrever</span> na saída 
+                abaixo esta posição. 
+                Como esta função será reutilizada em outro exercício, ela não deve escrever nada dentro dela 
+                (para exibir seu resultado, chame o escreva 
+                <span data-mostra-balaozinho="dica-usando-retorno">fora da função</span>).
+                Note que esta função deve funcionar para qualquer tamanho de vetor.
+            </p>
+        
+             <p>
+                Por exemplo, considere o vetor <code><span class="palavra-chave">let</span> <span class="variavel">frutas</span> = [<span class="literal">'Pera'</span>, <span class="literal">'Uva'</span>, <span class="literal">'Abacaxi'</span>, <span class="literal">'Cenoura'</span>]</code>: 
+            </p>
+            <table class="vetor">
+                <tr>
+                    <td class="indice">0</td><td class="indice">1</td><td class="indice">2</td><td class="indice">3</td>
+                </tr>
+                <tr>
+                    <td class="valor-pos-vetor"><span class="valor-variavel">'Pera'</span></td>
+                    <td class="valor-pos-vetor"><span class="valor-variavel">'Uva'</span></td>
+                    <td class="valor-pos-vetor"><span class="valor-variavel">'Abacaxi'</span></td>
+                    <td class="valor-pos-vetor"><span class="valor-variavel">'Cenoura'</span></td>
+                </tr>
+            </table>
+            <p>
+                Caso executemos <code><span class="funcao">obtemPosicaoDoElemento</span>(<span class="variavel">frutas</span>, <span class="literal">'Uva'</span>)</code>, a função deve retornar a posição 1.
+            </p>
+            <p>
+                Para testar, você deve <span data-mostra-balaozinho="dica-vetor-declarar-e-indexar">criar um vetor</span>
+                de strings ou de números e chamar a função escreva com seu retorno para ver o resultado na página.
+            </p>
+            <div id="div-ex5" class="saida"></div>
+        </section>
+        <section>
+            <h2>Exercício 6: Média entre menor e maior valor no vetor <span id="result-teste6" data-mostra-teste="teste-ex6"></span></h2>
+            <p>
+                Neste exercício, você deve implementar a função <code class="funcao">calculaMediaEntreExtremos</code>, que
+                recebe como parâmetro um vetor de números e 
+                retorna a seguinte conta:
+                \( \frac{min+max}{2} \) em que \(min\) e \(max\) são o menor e o maior valor no vetor, respectivamente. 
+                Da mesma forma que o exercício anterior, o vetor pode ser de qualquer tamanho. 
+            </p>
+            <p>
+                Por exemplo, para o vetor <code>[<span class="literal">3</span>, <span class="literal">-2, <span class="literal">12</span>]</code>,
+                o valor de \(min\) encontrado seria \(-2\) e de \(max\) seria \(12\). Dessa forma, a função deveria
+                retornar \(\frac{-2+12}{2}=\frac{10}{2}=5\).
+            </p>
+            <details class="dica">
+                <summary>Dica</summary>
+                <p>
+                    Um algoritmo para encontrar o <strong>menor elemento</strong> de um vetor, em pseudocódigo:
+                </p>
+                <pre><code><span class="palavra-chave">algoritmo</span> <span class="funcao">"Menor valor"</span>(<span class="variavel">valores</span>)
+    <span class="variavel">menorAteAgora</span> ← <span class="variavel">valores</span>[0]
+    <span class="palavra-chave">para cada</span> <span class="variavel">valor</span> <span class="palavra-chave">de</span> <span class="variavel">valores</span>
+        <span class="palavra-chave">se</span> <span class="variavel">valor</span> &lt; <span class="variavel">menorAteAgora</span> <span class="palavra-chave">então</span>
+            <span class="variavel">menorAteAgora</span> ← <span class="variavel">valor</span>
+        <span class="palavra-chave">fimse</span>
+    <span class="palavra-chave">fimpara</span>
+    <span class="palavra-chave">retorna</span> <span class="variavel">menorAteAgora</span>
+<span class="palavra-chave">fimalgoritmo</span></code></pre>
+                <p>Analogamente você pode construir outro algoritmo para achar o <strong>maior</strong> elemento.</p>
+                <p>Neste exercício, você pode usar essa lógica para achar 
+                    <strong>simultaneamente o maior e o menor</strong> elementos. Em seguida, você pode calcular o valor
+                    que deve ser retornado (a média aritmética entre eles).
+                </p>
+            </details>
+            <p>
+                Após implementar, invoque a função usando um <span data-mostra-balaozinho="dica-vetor-declarar-e-indexar">vetor</span>
+                que você criar e <span data-mostra-balaozinho="assinatura-de-escreva">escrever</span> na saída o resultado
+                retornado pela função.
+            </p>
+            <div id="div-ex6" class="saida"></div>
+        </section>
+
+        <section>
+            <h2>Exercício 7: Sequência de Fibonacci <span id="result-teste7" data-mostra-teste="teste-ex7"></span></h2>
+            <p>
+                A <a href="https://pt.wikipedia.org/wiki/Sequ%C3%AAncia_de_Fibonacci" target="_blank">sequência de Fibonacci</a>
+                é uma sucessão de números, começando por 0 e 1, na qual, cada termo subsequente corresponde 
+                à soma dos dois anteriores. Ex: os sete primeiros elementos da sequência Fibonacci são (0, 1, 1, 2, 3, 5, 8).
+            </p>
+            <p>
+                Você deve continuar a implementar a função <code class="funcao">Fibonacci</code>. Nela, você
+                não deve criar mais variáveis, apenas adicionar elementos ao vetor <code class="variavel">sequencia</code>. 
+                Essa função recebe como parâmetro um número inteiro <code class="variavel">n</code>
+                e retorna um vetor com os <code class="variavel">n</code> primeiros elementos
+                da sequência de Fibonacci. Por exemplo, <code class="funcao">fibonacci(7)</code>  
+                deve retornar o vetor: <code>[<span class="literal">0</span>, <span class="literal">1</span>,
+                    <span class="literal">1</span>, <span class="literal">2</span>, <span class="literal">3</span>,
+                    <span class="literal">5</span>, <span class="literal">8</span>]</code>.
+            </p>
+            <p>
+                Você pode considerar que o parametro de entrada sempre será maior que 2. Lembre-se que, em JavaScript,
+                você pode <span data-mostra-balaozinho="dica-adicionar-vetor">adicionar elementos em um vetor</span> facilmente. 
+            </p>
+            <p>
+                Logo após, realize pelo menos 3 chamadas a esta função. Só não coloque valores muito altos para
+                <code class="variavel">n</code> (use, no máximo, uns 20), porque o cálculo pode demorar.
+            </p>
+
+            <div id="div-ex7" class="saida"></div>
+        </section>
+        <section>
+            <h2>Exercício 8: Rede Social <span id="result-teste8" data-mostra-teste="teste-ex8"></span></h2>
+            <p>
+                Você irá fazer uma rede social por meio de um vetor de <span class="variavel">pessoas</span>
+                e matriz <span class="variavel">amizades</span>, similar ao apresentado abaixo: 
+            </p>
+            <p>
+                    <div class="variavel-composta">
+                        <span class="rotulo-variavel">pessoas:</span>
+                        <table class="vetor">
+                            <tr>
+                                <td class="indice">0</td><td class="indice">1</td><td class="indice">2</td><td class="indice">3</td>
+                            </tr>
+                            <tr>
+                                <td class="valor-pos-vetor"><span class="valor-variavel">'Alice'</span></td>
+                                <td class="valor-pos-vetor"><span class="valor-variavel">'Bob'</span></td>
+                                <td class="valor-pos-vetor"><span class="valor-variavel">'Carol'</span></td>
+                                <td class="valor-pos-vetor"><span class="valor-variavel">'Daniele'</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="variavel-composta">
+                        <span class="rotulo-variavel">amizades:</span>
+                        <table class="matriz">
+                                <tr>
+                                    <td></td><td class="indice">0</td><td class="indice">1</td><td class="indice">2</td><td class="indice">3</td></tr>
+                                <tr>
+                                    <td class="indice">0</td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">0</span></td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">0</span></td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">0</span></td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">1</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="indice">1</td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">1</span></td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">0</span></td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">1</span></td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">1</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="indice">2</td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">0</span></td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">0</span></td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">0</span></td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">1</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="indice">3</td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">1</span></td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">1</span></td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">0</span></td>
+                                    <td class="valor-pos-matriz"><span class="valor-variavel">0</span></td>
+                                </tr>
+                        </table>
+                    </div>
+            </p>
+            <p>
+                em que, na matriz <code class="variavel">amizades</code>, cada linha e coluna correspondem
+                a pessoas que podem manter uma relação de amizade entre si. Além disso, a pessoa da
+                i-ésima linha (e coluna) corresponde a mesma pessoa na posição i no 
+                vetor <code class="variavel">pessoas</code>. 
+                Por exemplo, a pessoa na linha 0 (e coluna 0) é a Alice, da mesma forma, a 
+                pessoa na linha e coluna 2 é a Carol. 
+            </p>
+            <p>
+                Nesta matriz o valor é 1 caso uma pessoa, representada na linha, é amiga da
+                pessoa representada pela coluna. Por exemplo, Alice é amiga apenas de
+                Danielle (veja a linha 0). Nesta rede social (assim como na vida 💁) pode ocorrer
+                falta de reciprocidade entre as amizades, por exemplo: Bob é amigo de Alice
+                mas Alice não é amiga de Bob.
+            </p>
+            <p>
+                Neste exercício você deverá fazer duas funções e testá-las por meio da matriz
+                e vetor acima (e outro que desejar):
+            </p>
+            <p>
+                <ul>
+                    <li>
+                        <code class="funcao">exibeAmigos</code>: 
+                        por meio do vetor <code class="variavel">pessoas</code>, 
+                        da matriz <code class="variavel">amizades</code> 
+                        e do nome de uma pessoa (passado como parametro nessa ordem), exibe os amigos dessa pessoa.
+                        Você deverá armazenar esta lista de amigos
+                        em um vetor e chamar a função <code data-mostra-balaozinho="assinatura-de-escreva" class="funcao">escreva</code> para exbir a saída neste vetor. 
+                    </li>
+                    <li>
+                        <code class="funcao">exibeAmigosEmComum</code>: por meio do vetor <code class="variavel">pessoas</code>,
+                        da matriz <code class="variavel">amizades</code>
+                        e do nome de uma pessoa <code class="variavel">X</code> e uma pessoa <code class="variavel">Y</code>
+                        (passados como parametro nessa ordem), exibe os amigos entre essas duas pessoas. 
+                        Você deve armazenar essa lista de amigos em comum 
+                        em um vetor e chamar a função <code class="funcao">escreva</code> para exbir a saída desse vetor.
+                    </li>
+                </ul>
+            </p>
+            <p>
+                Faça a exibição dessas saídas de tal forma que fique claro 
+                de qual entrada é a saída apresentada (use a função <code data-mostra-balaozinho="assinatura-de-escrevamensagem" class="funcao">escrevaMensagem</code>).
+                A função <code class="funcao">obtemPosicaoDoElemento</code> implementada anteriormente poderá ajudar
+                (reutilize-a -- não implemente novamente).              
+            </p>
+            <div id="div-ex8" class="saida"></div>
+        </section>
+        <section>
+            <h2>Exercício 9: Escreve datas por extenso <span id="result-teste9" data-mostra-teste="teste-ex9"></span></h2>
+            <p> 
+                Implemente a função <span class="funcao">escreveDataPorExtenso</span> que recebe como parâmetro uma data
+                no formato DD/MM/YYYY (ou seja, por exemplo, 31/12/2021) e retorna uma string com ela
+                por extenso "DD de M de YYYY" (ou seja 31 de dezembro de 2021). 
+            </p>
+            <p>
+                Para pegar o nome de um mês, dado seu número, use a função <code class="funcao">obtemNomeDoMes</code>
+                implementada anteriormente. Além disso, o  
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split" target="_blank">método split</a>
+                das strings será útil para pegar as três partes da data.
+            </p>
+            <p>
+                <span data-mostra-balaozinho="assinatura-de-escreva">Escreva</span> a data por extenso
+                na saída abaixo. Faça testes com pelo menos 3 datas.
+            </p>
+            <div id="div-ex9" class="saida"></div>
+        </section>
+        <section>
+            <h2>Exercício 10: Operações em string <span id="result-teste10" data-mostra-teste="teste-ex10"></span></h2>
+            <p>
+                Neste exercício, você deve continuar a implementação das três funções que auxiliarão no próximo exercício a seguir. Como elas 
+                serão utilizadas no próximo exercício, utilize a função <span class="funcao" data-mostra-balaozinho="assinatura-de-escreva">escreva</span> fora das funções a serem implementadas.
+            </p>
+            <dl>
+                <dt><span class="funcao">eliminaCaracteres</span> (2 parâmetros)</dt>
+                <dd>Elimina todas as ocorrências dos caracteres especificados de um texto.</dd>
+                <dd>Tanto o texto quanto os caracteres a serem removidos devem ser passados como parâmetros.</dd>
+                <dd>Por exemplo, <code class="funcao">eliminaCaracteres(<span class="literal">'correndo contra o tempo'</span>, <span class="literal">'coe'</span>)</code> deve resultar na string <code class="literal">'rrnd ntra  tmp'</code>.
+                    Você <ins>não deve alterar o <code class="palavra-chave">for</code></ins> já criado.</dd>
+                <dd>Use a função <span data-mostra-balaozinho="dica-replace">texto.replaceAll</span> para auxiliar.</dd>
+                <dd>Lembre-se que você pode acessar posições de uma string como se fosse um vetor. Por exemplo, <span
+                    class="funcao">texto[2]</span> acessa a letra de posição 2 desta string.</dd>
+                <dd>Dica: será necessário usar <code class="funcao">texto.replaceAll</code> uma vez para cada caractere especificado (ou seja, dentro de um laço).</dd>
+                <dd>Dica 2: eliminar um caractere é equivalente a substituí-lo por <code class="literal">''</code> (string vazia).</dd>
+                <dt><span class="funcao">substituaCaracteres</span> (3 parâmetros)</dt>
+                <dd>Dado um texto, uma string de procura e uma string de reposição, sendo que a string de procura e reposição são de mesmo tamanho, 
+                    substitua no texto o caractere na posição i da string de procura pelo caractere na mesma posição i na string de reposição.</dd>
+                <dd>O texto, os caracteres a serem procurados no texto e os caracteres a serem colocados no lugar serão passados como parâmetro.</dd>
+                <dd>Exemplo: <code class="funcao">substituiCaracteres(<span class="literal">'o sapo nao lava o pe'</span>, <span class="literal">'aoe'</span>, 'iiu')</code> deve resultar em <code class="literal">'i sipi nii livi i pu'</code></dd>
+                <dd>Dica: será necessário usar <code class="funcao">texto.replaceAll</code> uma vez para cada caractere especificado (ou seja, dentro de um laço).</dd>
+                
+                <dt><span class="funcao">inverteTexto</span> (1 parâmetro)</dt>
+                <dd>Dado um texto, retorna o mesmo de forma invertida</dd>
+                <dd>Exemplo: <code class="funcao">inverteTexto(<span class="literal">'roma'</span>)</code> deve resultar em <code class="literal">'amor'</code></dd>
+            
+            </dl>
+
+            <div id="div-ex10" class="saida"></div>
+        </section>
+        
+        <section>
+            <h2>Exercício 11: Palíndromos <span id="result-teste11" data-mostra-teste="teste-ex11"></span></h2>
+            <p>
+                Palíndromos, <a href="https://languages.oup.com/google-dictionary-pt/" target="_blank">segundo Oxford Languages</a>, são textos que se pode ler, indiferentemente, da esquerda para a direita ou vice-versa. 
+                São exemplos de palíndromos as palavras: "asa", "rapar", "mirim". E também as frases: "A cara rajada da jararaca", "Socorram-me, subi no ônibus em Marrocos". A música <a href="https://www.letras.mus.br/manu-lafer/690676/" target="_blank">"A cara rajada da jararaca" de Manu Lafer</a> é feita por palíndromos.
+                Perceba que, em frases, deve-se ignorar pontuação, acentuação, espaços e maiúsculas/minúsculas. 
+            </p>
+            <p>
+                Você deverá implementar a função <span class="funcao">verificaPalindromo</span> 
+                em que recebe-se uma string (texto ou uma única palavra) e retorna verdadeiro (true) caso o parâmetro represente um palíndromo ou falso, caso contrário. Além disso, a função deve escrever na saída abaixo a indicação se a palavra é ou não um palíndromo.
+            </p>
+            <p>
+                As funções do exercício anterior poderão auxiliar no processamento da string. Apenas <em>chame-as</em> quando necessário - <em>não implemente-as</em> novamente. 
+                Ignore as seguintes pontuações: <code class="literal">",-!?;"</code> e o espaço em branco. Além disso, os acentos agudo, til e circunflexo em vogais devem ser ignorados, além do cedilha. Você pode ignorá-los ao substituí-los por suas versões sem acento.
+            </p>
+            <div id="div-ex11" class="saida"></div>
+        </section>
+
+        <section>
+            <h2>Exercício 12: Funções como parâmetro 1</h2>
+            <p>Em JavaScript, o valor de uma variável/parâmetro pode ser uma função. Neste exercício, entenderemos isso melhor.</p>
+            <p>
+                Veja a função <span class="funcao">daOiPara</span>, que "inicia um chat"
+                (de mentirinha) com uma determinada pessoa.
+                A forma de se dar oi é controlada pelo parâmetro <code class="funcao">funcaoDeDarOi</code>,
+                que é uma função que deve receber o nome da pessoa e é responsável por retornar
+                uma string com o "oi" devidamente escrito em seu idioma.
+                Além desse parâmetro, a função <code class="funcao">daOiPara</code> espera receber o nome da pessoa.
+                Veja em <span class="arquivo">ex-unidade3.js</span> a implementação dessa função além das
+                vezes que ela foi invocada. Perceba as três formas que ela foi invocada.
+            </p>
+            <p>
+                Invoque a função <span class="funcao">daOiPara</span> em que o
+                parâmetro <span class="funcao">funcaoDeDarOi</span> será outras 3 funções criadas por você.
+                Lembre-se que ela deve obrigatoriamente receber o parâmetro do nome da pessoa e retornar uma string.
+                Crie três dessas funções, das três formas diferentes que foram apresentadas, e invoque-as como
+                exemplificado no arquivo. <strong>Use o <ins>seu próprio nome</ins></strong> para receber o oi.
+            </p>
+            <div id="div-ex12" class="saida"></div>
+        </section>
+
+        <section>
+            <h2>Exercício 13: Funções como parâmetro 2<span id="result-teste13" data-mostra-teste="teste-ex13"></span></h2>
+            <p> 
+                Você deve implementar a função <code class="funcao">aplicaOperacaoEmCadaElemento</code>, que recebe
+                como parâmetros uma <code class="variavel">operacao</code> (que é uma função) e dois vetores com mesmo tamanho: 
+                <code class="variavel">vetor1</code> e <code class="variavel">vetor2</code>. Então, para cada par de elementos
+                de mesma posição (ex: primeiro de <code class="variavel">vetor1</code> e primeiro de 
+                <code class="variavel">vetor2</code>, depois segundo...), ela invoca a operação, retornando um novo vetor como resultado.
+                Essa operação é uma função que recebe dois <em>números</em> como parâmetro 
+                (ex: <code class="funcao">function soma(a, b)</code>) e deve retornar o resultado da operação
+                entre os 2 elementos que foram passados como parâmetro (nesse caso, <code>a + b</code>).
+            </p>
+            <p>
+                Caso os dois vetores sejam de tamanho diferentes, deve-se exibir uma mensagem de erro, não realizar a operação
+                e retornar <code class="palavra-chave">null</code>.
+                Lembre-se que você pode acessar a propriedade <code class="palavra-chave">length</code> dos vetores para
+                saber seu tamanho.
+            </p>
+            <p>
+                Veja o exemplo abaixo, considerando a operação <code class="funcao">soma</code> (implementada no exercício 0.2). 
+
+                <div class="lado-a-lado">
+                    <div>
+                        <div class="variavel-composta">
+                            <code class="rotulo-variavel variavel">vetor1:</code>
+                            <table class="vetor">
+                                <tr>
+                                    <td class="indice">0</td><td class="indice">1</td><td class="indice">2</td><td class="indice">3</td>
+                                </tr>
+                                <tr>
+                                    <td class="valor-pos-vetor"><span class="valor-variavel">4</span></td>
+                                    <td class="valor-pos-vetor"><span class="valor-variavel">2</span></td>
+                                    <td class="valor-pos-vetor"><span class="valor-variavel">-1</span></td>
+                                    <td class="valor-pos-vetor"><span class="valor-variavel">10</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="variavel-composta">
+                            <code class="rotulo-variavel variavel">vetor2:</code>
+                            <table class="vetor">
+                                <tr>
+                                    <td class="indice">0</td><td class="indice">1</td><td class="indice">2</td><td class="indice">3</td>
+                                </tr>
+                                <tr>
+                                    <td class="valor-pos-vetor"><span class="valor-variavel">10</span></td>
+                                    <td class="valor-pos-vetor"><span class="valor-variavel">2</span></td>
+                                    <td class="valor-pos-vetor"><span class="valor-variavel">3</span></td>
+                                    <td class="valor-pos-vetor"><span class="valor-variavel">5</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="variavel-composta">
+                            <span class="rotulo-variavel">valor retornado</span>
+                            <table class="vetor">
+                                <tr>
+                                    <td class="indice">0</td><td class="indice">1</td><td class="indice">2</td><td class="indice">3</td>
+                                </tr>
+                                <tr>
+                                    <td class="valor-pos-vetor"><span class="valor-variavel">14</span></td>
+                                    <td class="valor-pos-vetor"><span class="valor-variavel">4</span></td>
+                                    <td class="valor-pos-vetor"><span class="valor-variavel">2</span></td>
+                                    <td class="valor-pos-vetor"><span class="valor-variavel">15</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <pre><code><span class="palavra-chave">let</span> <span class="variavel">vetor1</span> = <span class="literal">[4, 2, -1, 10]</span>;
+
+
+
+
+<span class="palavra-chave">let</span> <span class="variavel">vetor1</span> = <span class="literal">[10, 2, 3, 5]</span>;
+
+
+
+
+
+aplicaOperacaoEmCadaElemento(<span class="variavel">soma</span>, <span class="variavel">vetor1</span>, <span class="variavel">vetor2</span>);
+
+</code></pre>
+                    <pre><code><span class="palavra-chave">function</span> soma(<span class="variavel">a</span>, <span class="variavel">b</span>) {
+    <span class="palavra-chave">return</span> <span class="variavel">a</span> + <span class="variavel">b</span>;
+}
+
+<span class="palavra-chave">function</span> aplicaOperacaoEmCadaElemento(<span class="variavel">operacao</span>, <span class="variavel">vetor1</span>, <span class="variavel">vetor2</span>) {
+    <span class="comentario">// ...implementar...</span>
+    <span class="comentario">// ...</span>
+    <span class="comentario">// retorna vetor de resultado</span>
+}
+
+</code></pre>
+                </div>
+            </p>
+            <p>
+                Você deverá implementar a função <span class="funcao">aplicaOperacaoEmCadaElemento</span> e 
+                três operações distintas (por exemplo, <code class="funcao">soma(a, b)</code>, 
+                <code class="funcao">multiplica(a, b)</code> e <code class="funcao">subtrai(a, b)</code>),
+                cada uma, criando uma função de forma uma diferente. 
+            </p>
+            <div id="div-ex13" class="saida"></div>
+        </section>
+
+        <!-- Conteúdo dos balões com dicas -->
+        <div id="dicas">
+            <div id="mascara-balaozinho"></div>
+            <aside class="balaozinho" id="dica-criar-funcao">
+                <h3>
+                    Criando uma função
+                    <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#declarando-e-invocando-funcoes" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="https://youtu.be/HVTqSwKmIYM?t=1100" class="link-recurso-no-balao" target="_blank">📺</a>                    
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <p>
+                        Uma função pode ser criada de diferentes formas. A mais básica é usando a palavra-chave
+                        <code class="palavra-chave">function</code>, seguida de um nome e da lista de parâmetros.
+                        Em seguida vem o seu corpo, delimitado entre chaves:
+                    </p>
+                    <pre><code><span class="palavra-chave">function</span> fazAlgumaCoisa(param1, param2) {
+    <span class="comentario">// ...comandos aqui...</span>
+}</code></pre>
+                    <p>
+                        Repare que <strong>não é necessário (sequer possível)</strong>:
+                    </p>
+                    <ol>
+                        <li>definir o tipo de dado de retorno;</li>
+                        <li>definir o tipo de dado dos parâmetros.</li>
+                    </ol>
+                    <p>Isso acontece porque os tipos de dados em JavaScript são inferidos.</p>
+                    <p>Uma função pode retornar um valor usando <code class="palavra-chave">return</code>:</p>
+                    <pre><code><span class="palavra-chave">function</span> fazAlgo() {
+    <span class="comentario">// ...faz coisas...</span>
+    <span class="palavra-chave">return</span> <span class="variavel">umValor</span>;
+}</code></pre>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-usando-retorno">
+                <h3>
+                    Usando o retorno de uma função
+                    <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#21" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="https://youtu.be/HVTqSwKmIYM?t=1220" class="link-recurso-no-balao" target="_blank">📺</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <p>
+                        Ao invocar uma função que retorna algo, podemos usar o que foi retornado. Por exemplo:
+                    </p>
+                    <pre><code><span class="palavra-chave">function</span> tiraMedia(n1, n2, n3) {
+    <span class="palavra-chave">return</span> (<span class="variavel">n1</span> + <span class="variavel">n2</span> + <span class="variavel">n3</span>) / <span class="literal">3</span>;
+}
+
+<span class="palavra-chave">let</span> <span class="variavel">media</span> = tiraMedia(<span class="literal">1</span>, <span class="literal">2</span>, <span class="literal">3</span>);
+escreva(<span class="literal">1</span>, <span class="literal">'Rótulo'</span>, <span class="variavel">media</span>);
+<span class="comentario">// escreve: Rótulo: 3</span>
+
+
+<span class="comentario">// ou então em 1 linha:</span>
+escreva(<span class="literal">1</span>, <span class="literal">'Rótulo'</span>, tiraMedia(<span class="literal">1</span>, <span class="literal">2</span>, <span class="literal">3</span>));
+<span class="comentario">// escreve: Rótulo: 3</span></code></pre>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-operadores">
+                <h3>
+                    Operadores em JavaScript
+                    <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#operadores" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="https://youtu.be/HVTqSwKmIYM?t=886" class="link-recurso-no-balao" target="_blank">📺</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <p>
+                        JavaScript possui diversos operadores matemáticos e lógicos (veja vídeo acima). Alguns exemplos
+                        de operadores matemáticos:
+                    </p>
+                    <pre><code>a + b;  <span class="comentario">// soma</span>
+a - b;  <span class="comentario">// subtração</span>
+a * b;  <span class="comentario">// multiplicação</span>
+a / b;  <span class="comentario">// divisão</span>
+a ** b; <span class="comentario">// a elevado a b</span></code></pre>
+                    <p>
+                        Algumas <strong>funções matemáticas mais complexas</strong> podem ser acessadas por meio
+                        do <span class="palavra-chave">Math</span>. Por exemplo:
+                    </p>
+                    <pre><code><span class="palavra-chave">Math</span>.sin(angulo);         <span class="comentario">// seno</span>
+<span class="palavra-chave">Math</span>.cos(angulo);         <span class="comentario">// cosseno</span>
+<span class="palavra-chave">Math</span>.sqrt(numero);        <span class="comentario">// raiz quadrada</span>
+<span class="palavra-chave">Math</span>.pow(base, expoente); <span class="comentario">// exponenciação</span>
+<span class="comentario">//    ^ também há: base ** expoente</span></code></pre>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="assinatura-de-escreva">
+                <h3>Função <code>escreva(...)</code></h3>
+                <div class="conteudo-balaozinho">
+                    <pre><code><span class="comentario">// ...</span>
+escreva(<span class="literal">numeroExercicio</span>, <span class="literal">rotulo</span>, <span class="variavel">valor</span>);
+<span class="comentario">//      ---------------  ------  -----
+// nº exercício^  descrição^ variável^</span></code></pre>
+                    <p>
+                        Por exemplo, para escrever a expressão <span class="literal">4*5 + 1</span>
+                        com o rótulo <span class="literal">"Cálculo feito"</span> no exercício <span class="literal">0.4</span>:
+                    </p>
+                    <pre><code>escreva(<span class="literal">0.4</span>, <span class="literal">"Cálculo feito"</span>, <span class="literal">4</span>*<span class="literal">5</span> + <span class="literal">1</span>);</code></pre>
+                    <p>Esse código fará aparecer no <span class="saida inline-swatch"></span> do exercício 0.4:</p>
+                    <div class="saida">
+                        <span class="rotulo-variavel">Cálculo feito:</span><span class="valor-variavel">21</span>
+                    </div>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="assinatura-de-escrevamensagem">
+                <h3>Função <code>escrevaMensagem(...)</code></h3>
+                <div class="conteudo-balaozinho">
+                    <pre><code><span class="comentario">// ...</span>
+escreva(<span class="literal">numeroExercicio</span>, <span class="literal">texto</span>);
+<span class="comentario">//      ---------------  -----
+// nº exercício^  mensagem^</span></code></pre>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-raiz-quadrada">
+                <h3>
+                    Raiz Quadrada
+                    <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#o-objeto-math" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="https://www.youtube.com/watch?v=HVTqSwKmIYM&t=1055s" class="link-recurso-no-balao" target="_blank">📺</a>
+                    <!-- <a href="" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="" class="link-recurso-no-balao" target="_blank">📺</a> -->
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <p>
+                        Para calcular a raiz quadrada de um número, você deve usar a função <code class="funcao">Math.sqrt(numero)</code>.
+                        Por exemplo:
+                    </p>
+                    <pre><code><span class="palavra-chave">let</span> <span class="variavel">numero</span> = <span class="literal">36</span>;
+<span class="palavra-chave">let</span> <span class="variavel">resultado</span> = <span class="palavra-chave">Math</span>.sqrt(<span class="variavel">numero</span>);
+console.log(resultado); <span class="comentario">// 6</span></code></pre>
+                </div>
+            </aside>
+
+            <aside class="balaozinho" id="dica-criar-variavel">
+                <h3>
+                    Criar uma variável
+                    <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#criando-variaveis-com-let" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="https://www.youtube.com/watch?v=HVTqSwKmIYM&t=281s" class="link-recurso-no-balao" target="_blank">📺</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <p>
+                        Para criar uma variável, você deve usar a palavra-chave <code class="palavra-chave">let</code> seguida do seu nome:
+                    </p>
+                    <pre><code><span class="palavra-chave">let</span> <span class="variavel">nomeDaVariavel</span>;</code></pre>
+                    <p>
+                        É bem comum já declarar a variável e atribuir um valor a ela:
+                    </p>
+                    <pre><code><span class="palavra-chave">let</span> <span class="variavel">nome</span> = <span class="literal">'Dorvalino'</span>;
+<span class="palavra-chave">let</span> <span class="variavel">pontos</span> = <span class="literal">53</span>;
+<span class="palavra-chave">let</span> <span class="variavel">estaCorrendo</span> = <span class="literal">true</span>;
+<span class="palavra-chave">let</span> <span class="variavel">armas</span> = <span class="literal">['espada', 'chinelo']</span>;</code></pre>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-abrindo-console">
+                <h3>Abrindo o console</h3>
+                <div class="conteudo-balaozinho">
+                    <video src="videos/abrindo-console.mp4" width="100%" autoplay controls muted loop="0"></video>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-regras-legibilidade">
+                <h3>
+                    Regras de legibilidade e nomenclatura
+                    <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#regras-de-legibilidade-e-nomenclatura-1" class="link-recurso-no-balao" target="_blank">🌐</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <dl class="regras-de-legibilidade">
+                        <dt>1. Notação camelo 🐪:</dt>
+                        <dd><pre><code><span class="palavra-chave">let</span> ultimoNome = <span class="literal">''</span>; <span class="push-right icon">✅</span>
+<span class="palavra-chave">let</span> ultimo_nome = <span class="literal">''</span>; <span class="push-right icon">❌</span>
+<span class="palavra-chave">let</span> ultimonome = <span class="literal">''</span>; <span class="push-right icon">❌</span>
+<span class="palavra-chave">let</span> últimoNOME = <span class="literal">''</span>; <span class="push-right icon">❌</span></code></pre></dd>
+                        <dt>2. Indentação:</dt>
+                        <dd><pre><code><span class="palavra-chave">if</span> (teste) {
+    comando; <span class="push-right icon">✅</span>
+}
+<span class="palavra-chave">if</span> (teste) {
+comando;     <span class="push-right icon">❌</span>
+}</code></pre></dd>
+                        <dt>3. Nomes descritivos:</dt>
+                        <dd><pre><code><span class="palavra-chave">let</span> numeroDeAlunos = <span class="literal">20</span>; <span class="icon push-right">✅</span>
+<span class="palavra-chave">let</span> j = <span class="literal">20</span>; <span class="icon push-right">❌</span></code></pre></dd>
+                        <dt>4. Arejamento:</dt>
+                        <dd><pre><code><span class="palavra-chave">let</span> <span class="variavel">hp</span> -= <span class="variavel">dano</span> * <span class="literal">0.6</span>; <span class="icon push-right">✅</span>
+<span class="palavra-chave">let</span> <span class="variavel">hp</span>-=<span class="variavel">dano</span>*<span class="literal">0.6</span>; <span class="icon push-right">❌</span></code></pre></dd>
+                    </dl>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-forofeach">
+                <h3>
+                    For of / For each
+                    <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#for-formas-mais-legais" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="https://www.youtube.com/watch?v=jUogBV4G3X8&t=453s" class="link-recurso-no-balao" target="_blank">📺</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <pre class="smaller-font"><code><span class="palavra-chave">let</span> premios = <span class="literal">[1000, 200, 50]</span>;
+                        
+<span class="comentario">// for tradicional</span>
+<span class="palavra-chave">for</span> (<span class="palavra-chave">let</span> i = <span class="literal">0</span>; i &lt; premios.length; i++) {
+    console.log(premios[i]);
+}
+
+<span class="comentario">// for of</span>
+<span class="palavra-chave">for </span>(<span class="palavra-chave">let</span> premio <span class="palavra-chave">of</span> premios) {
+    console.log(premio);    
+}
+
+<span class="comentario">// for each</span>
+premios.forEach(<span class="palavra-chave">function</span>(premio) {
+    console.log(premio);
+});</code></pre>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-vetor-declarar-e-indexar">
+                <h3>
+                    Vetores: declarar e indexar
+                    <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#vetores" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="https://www.youtube.com/watch?v=jUogBV4G3X8&t=191s" class="link-recurso-no-balao" target="_blank">📺</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <p>Para declarar um vetor:</p>
+                    <pre><code><span class="palavra-chave">let</span> <span class="variavel">cores</span> = <span class="literal">['azul', 'amarelo']</span>;</code></pre>
+                    <p>Para pegar o i-ésimo elemento:</p>
+                    <pre><code><span class="palavra-chave">let</span> <span class="variavel">cor</span> = <span class="variavel">cores</span>[<span class="variavel">i</span>];</code></pre>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-if-else">
+                <h3>
+                    if/else
+                    <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#if-else" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="https://www.youtube.com/watch?v=jUogBV4G3X8&t=14s" class="link-recurso-no-balao" target="_blank">📺</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <pre><code><span class="palavra-chave">if</span> (EXPRESSAO) {
+    COMANDOS;
+} <span class="palavra-chave">else if</span> (EXPRESSAO) {
+    COMANDOS;
+} <span class="palavra-chave">else</span> {
+    COMANDOS;
+}</code></pre>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-adicionar-vetor">
+                <h3>
+                    Adicionando elem. a um vetor
+                    <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#29" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="https://youtu.be/jUogBV4G3X8?t=340" class="link-recurso-no-balao" target="_blank">📺</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <p>Para adicionar <strong>ao final</strong> do vetor:</p>
+                    <pre><code><span class="palavra-chave">let</span> <span class="variavel">coisas</span> = ['suco'];
+<span class="variavel">coisas</span>.push(<span class="literal">'besouro'</span>);
+<span class="comentario">// ['suco', 'besouro']</span></code></pre>
+                    <p>Para adicionar <strong>no início</strong> do vetor (menos comum):</p>
+                    <pre><code><span class="palavra-chave">let</span> <span class="variavel">coisas</span> = ['suco'];
+<span class="variavel">coisas</span>.unshift(<span class="literal">'besouro'</span>);
+<span class="comentario">// ['besouro', 'suco']</span></code></pre>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-ordena-vetor">
+                <h3>
+                    Ordenar um vetor
+                    <a href="" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="" class="link-recurso-no-balao" target="_blank">📺</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <p>Em ordem crescente, basta <code>vetor.sort()</code>:</p>
+                    <pre class="smaller-font"><code><span class="palavra-chave">let</span> <span class="variavel">notas</span> = <span class="literal">[8, -1, 2];</span>
+<span class="variavel">notas</span>.sort();
+<span class="comentario">// [-1, 2, 8]</span></code></pre>
+                    <p>Caso queira ordenar de forma decrescente, é possível passar uma função como parâmetro para <code>vetor.sort(...)</code> (veja <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">na MDN</a>).</p>
+                    <p>Essa função é responsável por comparar dois elementos.</p>
+                    <p>Ela recebe dois itens por parâmetro (<code class="variavel">valorA, valorB</code>) e, a cada vez que é invocada pelo algoritmo de ordenação, deve retornar se eles:</p>
+                    <dl class="smaller-font">
+                        <dt>são iguais</dt>
+                        <dd><code><span class="palavra-chave">return</span> <span class="literal">0</span></code></dd>
+                        <dt><code><span class="variavel">valorA</span> &lt; <span class="variavel">valorB</span></code></dt>
+                        <dd><code><span class="palavra-chave">return</span> <span class="literal">-1</span></code></dd>
+                        <dt><code><span class="variavel">valorA</span> &gt; <span class="variavel">valorB</span></code></dt>
+                        <dd><code><span class="palavra-chave">return</span> <span class="literal">1</span></code></dd>
+                    </dl>
+                    <p>Se invertermos o -1 com +1, ordenamos de forma decrescente:</p>
+                    <pre class="smaller-font"><code><span class="palavra-chave">function</span> compara(<span class="variavel">valorA</span>, <span class="variavel">valorB</span>) {
+    <span class="palavra-chave">if</span> (<span class="variavel">valorA</span> &gt; <span class="variavel">valorB</span>) <span class="palavra-chave">return</span> <span class="literal">-1</span>;
+    <span class="palavra-chave">else if</span> (<span class="variavel">valorA</span> &lt; <span class="variavel">valorB</span>) <span class="palavra-chave">return</span> <span class="literal">1</span>;
+    <span class="palavra-chave">else return</span> <span class="literal">0</span>;
+}
+<span class="palavra-chave">let</span> <span class="variavel">notas</span> = <span class="literal">[8, -1, 2];</span>
+<span class="variavel">notas</span>.sort(compara);
+<span class="comentario">// [8, 2, -1]</span></code></pre>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-remove-vetor">
+                <h3>
+                    Remover um elemento do vetor
+                    <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#metodos-comuns-de-vetores-1" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="https://www.youtube.com/watch?v=uRAtZQccA1g&t=923s" class="link-recurso-no-balao" target="_blank">📺</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <pre class="smaller-font"><code><span class="palavra-chave">let</span> <span class="variavel">animais</span> = <span class="literal">['dog', 'gato', 'rato']</span>;
+
+<span class="comentario">// remove do final</span>
+<span class="variavel">animais</span>.pop();
+<span class="comentario">// ['dog', 'gato']</span>
+
+<span class="comentario">// remove do início</span>
+<span class="variavel">animais</span>.shift();
+<span class="comentario">// ['gato']</span></code></pre>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-insere-vetor">
+                <h3>
+                    Inserir um elemento no vetor
+                    <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#metodos-comuns-de-vetores-1" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="https://www.youtube.com/watch?v=uRAtZQccA1g&t=923s" class="link-recurso-no-balao" target="_blank">📺</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <pre class="smaller-font"><code><span class="palavra-chave">let</span> <span class="variavel">animais</span> = <span class="literal">['gato']</span>;
+
+<span class="comentario">// insere no final</span>
+<span class="variavel">animais</span>.push('rato');
+<span class="comentario">// ['gato', 'rato']</span>
+
+<span class="comentario">// insere no início</span>
+<span class="variavel">animais</span>.unshift('dog');
+<span class="comentario">// ['dog', 'gato', 'rato']</span></code></pre>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-replace">
+                <h3>
+                    texto.replace e replaceAll
+                    <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="https://www.youtube.com/watch?v=uRAtZQccA1g&t=394s" class="link-recurso-no-balao" target="_blank">📺</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <p>Strings possuem métodos <code class="funcao">texto.replace(trecho, novo)</code> e <code class="funcao">texto.replaceAll(trecho, novo)</code>.</p>
+                    <p>O primeiro encontra 1 ocorrência de <code class="variavel">trecho</code> e o substitui por <code class="variavel">novo</code>.</p>
+                    <p>O segundo substitui todas as ocorrências. Por exemplo:</p>
+                    <pre><code><span class="palavra-chave">const</span> <span class="variavel">frase</span> = <span class="literal">'Oi banana'</span>;
+        
+<span class="variavel">frase</span>.replace(<span class="literal">'a'</span>, <span class="literal">'o'</span>);
+<span class="comentario">// retorna 'Oi bonana'</span>
+
+<span class="variavel">frase</span>.replace<strong>All</strong>(<span class="literal">'a'</span>, <span class="literal">'o'</span>);
+<span class="comentario">// retorna 'Oi bonono'</span></code></pre>
+                    <p>
+                        Lembre-se que métodos de string não alteram ela própria, mas retornam uma nova
+                        como resultado.
+                    </p>
+                </div>
+            </aside>
+            <aside class="balaozinho" id="dica-concatenar-strings">
+                <h3>
+                    Concatenando strings
+                    <a href="https://fegemo.github.io/cefet-front-end/classes/js0/#15" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="https://youtu.be/HVTqSwKmIYM?t=785" class="link-recurso-no-balao" target="_blank">📺</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    <p>
+                        Para concatenar (juntar) strings e/ou valores de variáveis,
+                        podemos usar o operador <code>+</code>. Por exemplo:
+                    </p>
+                    <pre><code><span class="palavra-chave">const</span> <span class="variavel">sobrenome</span> = <span class="literal">'Dalip'</span>;
+console.log(<span class="literal">'Daniel Hasan '</span> + <span class="variavel">sobrenome</span>);
+<span class="comentario">// Imprime: Daniel Hasan Dalip</span></code></pre>
+                </div>
+            <aside class="balaozinho" id="dica-xxx">
+                <h3>
+                    xxx
+                    <a href="" class="link-recurso-no-balao" target="_blank">🌐</a>
+                    <a href="" class="link-recurso-no-balao" target="_blank">📺</a>
+                </h3>
+                <div class="conteudo-balaozinho">
+                    xxx
+                </div>
+            </aside>
+        </div>
+        <!-- Conteúdo dos testes -->
+        <div id="saidaTestes">
+
+        </div>
+
+        <!-- Funções para exibir a saída dos exercícios-->
+        <script src="scripts/saida.js"></script>
+
+        <!-- Funções dos exercicios a serem criados-->
+        <script src="ex-unidade1.js"></script>
+        <script src="ex-unidade2.js"></script>
+        <script src="ex-unidade3.js"></script>
+
+        <!-- biblioteca KaTeX, inclúida para para escrever fórmulas matemáticas -->
+        <script src="scripts/katex.min.js"></script>
+        <script src="scripts/auto-render.min.js" onload="renderMathInElement(document.body, {strict: false});"></script>
+        
+        <!-- dicas em balõezinhos -->
+        <script src="scripts/balaozinho.js"></script>
+
+        <!-- Funções para criação das "abas" de navegação nos exercícios -->
+        <script src="scripts/menu-exercicios.js"></script>
+
+        <!-- visualização dos testes unitarios - usando accordion -->
+        <script src="scripts/jquery.js"></script>
+        <script src="scripts/jquery-ui.min.js"></script>
+
+        <!-- Funções dos testes automatizados -->
+        <script src="scripts/testes-automatizados.js"></script>
+        <script src="scripts/testes-exercicios-unidade1.js"></script>
+        <script src="scripts/testes-exercicios-unidade2.js"></script>
+        <script src="scripts/testes-exercicios-unidade3.js"></script>
+    </body>
+</html>
