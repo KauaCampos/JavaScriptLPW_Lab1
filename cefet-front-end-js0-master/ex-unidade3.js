@@ -56,3 +56,28 @@ dizOiPara(oiEmPortugues, 'Daniel');
 dizOiPara(function(nome) {
     return 'Hi ' + nome + ', how are you?';
 }, 'Daniel');
+
+
+//exercicio 0.6
+function metodosVetor (vetor) {
+    let quantidade = 0;
+    vetor.forEach (function (vetor) {
+        quantidade++;
+    })
+
+    let aux;
+    for (let i = 0; i < quantidade; i++)
+        for (let j = 0; j < quantidade; j++) 
+            if (vetor [i] > vetor [j] && i < j) {
+                aux = vetor [i];
+                vetor [i] = vetor [j];
+                vetor [j] = aux;
+            }
+
+
+    vetor [0] = 'abacate';
+    return vetor;
+}
+
+let ordem = [1, 2, 5, 4]
+escreva (0.6, 'vetor', metodosVetor (ordem));

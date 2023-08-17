@@ -145,3 +145,7 @@ function calculaMediaEntreExtremos(vetorDeNumeros) {
 
 let vetor = [3, -2, 12];
 escreva (6, 'media', calculaMediaEntreExtremos (vetor));
+
+//exercicio 8
+let pessoas = ['Alice', 'Bob', 'Carol', 'Daniela'];
+let amizades = [[0, 0, 0, 1], [1, 0, 1, 1], [0, 0, 0, 1], [1, 1, 0, 0]];
