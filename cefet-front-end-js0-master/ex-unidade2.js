@@ -147,5 +147,57 @@ let vetor = [3, -2, 12];
 escreva (6, 'media', calculaMediaEntreExtremos (vetor));
 
 //exercicio 8
-let pessoas = ['Alice', 'Bob', 'Carol', 'Daniela'];
+let pessoas = ['Alice', 'Bob', 'Carol', 'Daniele'];
 let amizades = [[0, 0, 0, 1], [1, 0, 1, 1], [0, 0, 0, 1], [1, 1, 0, 0]];
+
+function exibeAmigos (pessoas, amizades, nome) {
+    let amigos = [], posicaoNome = obtemPosicaoDoElemento (pessoas, nome);
+    const quantidadePessoas = pessoas.length;
+
+    for (let i = 0, quant = 0; i < quantidadePessoas; i++) {
+        if (i === posicaoNome)
+            continue;
+
+        if (amizades [posicaoNome] [i] === 1 && quant === 0) {
+            amigos = [pessoas [i]];
+            quant ++;
+            continue;
+        }
+
+        if (amizades [posicaoNome] [i] === 1)
+            amigos.push (pessoas [i]);
+    }
+
+    escrevaMensagem (8, "Amigos de " + nome);
+    escreva (8, "amigos", amigos);
+    return amigos;
+}
+
+function exibeAmigosEmComum (pessoas, amizades, pessoa1, pessoa2) {
+    const quantidadePessoas = pessoas.length;
+    posicaoPessoa1 = obtemPosicaoDoElemento (pessoas, pessoa1);
+    posicaoPessoa2 = obtemPosicaoDoElemento (pessoas, pessoa2);
+    let amigos = [];
+
+    for (let i = 0, quant = 0; i < quantidadePessoas; i++) {
+        if (i == posicaoPessoa1 || i == posicaoPessoa2)
+            continue;
+
+        if (amizades [posicaoPessoa1] [i] === 1 && amizades [posicaoPessoa2] [i] === 1  && quant === 0) {
+            amigos = [pessoas [i]];
+            quant ++;
+            continue;
+        }
+
+        if (amizades [posicaoPessoa1] [i] === 1 && amizades [posicaoPessoa2] [i] === 1) 
+            amigos.push (pessoas [i]);
+    }
+
+    escrevaMensagem (8, "Amigos em comum de " + pessoa1 + " e " + pessoa2);
+    escreva (8, "amigos em comum", amigos);
+
+    return amigos;
+}
+
+exibeAmigos (pessoas, amizades, 'Bob');
+exibeAmigosEmComum (pessoas, amizades, 'Bob', 'Alice');

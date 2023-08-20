@@ -1,9 +1,7 @@
 function eliminaCaracteres(texto, caracteresParaEliminar) {
     for (let caractere of caracteresParaEliminar) {
-
-    }
-    
-    
+        texto = texto.replaceAll (caractere, '');
+    }  
     return texto;
 }
 
@@ -12,20 +10,22 @@ function substituiCaracteres(texto, caracteresProcura, caracteresSubstituirPor) 
     for(let i = 0; i < caracteresProcura.length; i++) {
         let caractereProcura = caracteresProcura[i];
         let caractereSubstituirPor = caracteresSubstituirPor[i];
-        
+        texto = texto.replaceAll (caractereProcura, caractereSubstituirPor);
     }
-    
-    
     return texto;
 }
 
 function inverteTexto(texto) {
     let textoInvertido = '';
-
-
+    for (const char of texto) {
+        textoInvertido = char + textoInvertido;
+    }
     return textoInvertido;
 }
 
+escreva (10, "elimina caracteres", eliminaCaracteres ('aranha', 'a'));
+escreva (10, "substitui caracteres", substituiCaracteres('o sapo nao lava o pe', 'aoe', 'iiu'));
+escreva (10, "inverte o texto", inverteTexto ('ramo'));
 
 
 function dizOiPara(funcaoDeDarOi, nomeDaPessoa) {
@@ -60,24 +60,76 @@ dizOiPara(function(nome) {
 
 //exercicio 0.6
 function metodosVetor (vetor) {
-    let quantidade = 0;
-    vetor.forEach (function (vetor) {
-        quantidade++;
-    })
-
-    let aux;
-    for (let i = 0; i < quantidade; i++)
-        for (let j = 0; j < quantidade; j++) 
-            if (vetor [i] > vetor [j] && i < j) {
-                aux = vetor [i];
-                vetor [i] = vetor [j];
-                vetor [j] = aux;
-            }
-
-
+    let aux, tamanho = vetor.lenght;
+    vetor.sort()
+    vetor.pop();
+    for (let i = tamanho; i > 0; i--) {
+        vetor [i] = vetor [i - 1];
+    }
     vetor [0] = 'abacate';
     return vetor;
 }
 
-let ordem = [1, 2, 5, 4]
-escreva (0.6, 'vetor', metodosVetor (ordem));
+let ordem1 = [4, 0, 9];
+let ordem2 = [5, 4, 3, 2, 1];
+escreva (0.6, 'vetor', metodosVetor (ordem1));
+escreva (0.6, 'vetor', metodosVetor (ordem2));
+
+//exercicio 0.7
+function metodosString (string) {
+    string = string.toUpperCase ();
+    string = string.replaceAll ('O', 'A');
+    escreva (0.7, 'string', string);
+    return string;
+}
+
+metodosString ('onibus');
+
+//exercicio 9
+function escreveDataPorExtenso (data) {
+    const dataSeparada = data.split('/')
+    const mesExtenso = obtemNomeDoMes (dataSeparada [1]);
+    return dataSeparada [0] + " de " + mesExtenso + " de " + dataSeparada [2];
+}
+
+escreva (9, "data", escreveDataPorExtenso ("31/12/2021"));
+escreva (9, "data", escreveDataPorExtenso ("07/09/2007"));
+escreva (9, "data", escreveDataPorExtenso ("20/08/2023"));
+
+//exercicio 11
+function retirarAcentos (string) {
+    for (let char of string) {
+        if (char == 'á' || char == 'ã') {
+            string = string.replaceAll (char, 'a');
+        }
+        if (char == 'é' || char == 'ê') {
+            string = string.replaceAll (char, 'e');
+        }
+        if (char == 'í') {
+            string = string.replaceAll (char, 'i');
+        }
+        if (char == 'ó' || char == 'ô' || char == 'õ') {
+            string = string.replaceAll (char, 'o');
+        }
+        if (char == 'ú') {
+            string = string.replaceAll (char, 'u');
+        }
+    }
+
+    return string;
+}
+
+function verificaPalindromo (string) {
+    string = string.toLowerCase ();
+    string = retirarAcentos (string);
+    let stringSemPontuacoes = '';
+    for (let char of string) {
+        if (char == '?' || char == '!' || char == ',' || char == ';' || char == '-' || char == ' ')
+            continue;
+        stringSemPontuacoes += char;
+    }
+    
+    return stringSemPontuacoes === inverteTexto (stringSemPontuacoes);
+}
+
+escreva (11, 'palindromo', verificaPalindromo ('A cara rajada da jararaca'));
