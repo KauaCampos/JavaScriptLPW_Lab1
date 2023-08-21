@@ -27,7 +27,7 @@ escreva (10, "elimina caracteres", eliminaCaracteres ('aranha', 'a'));
 escreva (10, "substitui caracteres", substituiCaracteres('o sapo nao lava o pe', 'aoe', 'iiu'));
 escreva (10, "inverte o texto", inverteTexto ('ramo'));
 
-
+//exercicio 12
 function dizOiPara(funcaoDeDarOi, nomeDaPessoa) {
     
     // veja que aqui, independente do nome da função
@@ -60,14 +60,14 @@ dizOiPara(function(nome) {
 
 //exercicio 0.6
 function metodosVetor (vetor) {
-    let aux, tamanho = vetor.lenght;
-    vetor.sort()
+    let aux, abacate = ['abacate'];
+    vetor.sort();
     vetor.pop();
-    for (let i = tamanho; i > 0; i--) {
-        vetor [i] = vetor [i - 1];
+    for (let elemento of vetor) {
+        abacate.push (elemento);
     }
-    vetor [0] = 'abacate';
-    return vetor;
+
+    return abacate;
 }
 
 let ordem1 = [4, 0, 9];
@@ -133,3 +133,19 @@ function verificaPalindromo (string) {
 }
 
 escreva (11, 'palindromo', verificaPalindromo ('A cara rajada da jararaca'));
+
+//exercicio 13
+function aplicaOperacaoEmCadaElemento (operacao, vetor1, vetor2) {
+    if (vetor1.length != vetor2.length)
+        return null;
+    
+    let vetor = [];
+    for (let i = 0; i < vetor1.length; i++) 
+        vetor.push (operacao (vetor1 [i], vetor2[i]));
+
+    return vetor;
+}
+
+let numeros1 = [4, 2, -1, 10];
+let numeros2 = [10, 2, 3, 5];
+escreva (13, 'soma',aplicaOperacaoEmCadaElemento (soma, numeros1, numeros2));
